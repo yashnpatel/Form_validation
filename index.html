@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body style="background-color: rgb(0, 0, 0); color: white;">
+
+    <div class="container">
+        <div class="first_form">
+            <h1>Task Form Validation</h1>
+            <div class="form">
+                <form id="myForm">
+                    <div class="form-group">
+                        <label>First Name<span class="required" id="required"> *</span></label>
+                        <input type="text" id="fname" class="form-control" placeholder="Your First Name.."
+                            oninput="Name_Check()" onkeypress="disableSpace(event)" onpaste="return false;">
+                        <p id="fnameError" class="text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" id="lname" class="form-control" placeholder="Your Last Name.."
+                            oninput="Name_Check()" onkeypress="disableSpace(event)" onpaste="return false;">
+                        <p id="lnameError" class="text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Email address<span class="required"> *</span></label>
+                        <input type="email" class="form-control" id="Email" placeholder="Enter email"
+                            oninput="Email_Check()" onpaste="return false;">
+                        <p id="emailError" class="text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Password<span class="required"> *</span></label>
+                        <input type="password" class="form-control" id="Pwd" placeholder="Password"
+                            oninput="Password_Check()" onchange="ConfirmPassword_Check()" onpaste="return false;">
+                        <p id="passwordError" class="text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password<span class="required"> *</span></label>
+                        <input type="password" class="form-control" id="ConfirmPwd" placeholder="Confirm Password"
+                            oninput="ConfirmPassword_Check()" onpaste="return false;">
+                        <p id="confirmPasswordError" class="text-danger" ></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number<span class="required"> *</span></label>
+                        <input type="tel" class="form-control" id="mobileNumber" placeholder="Enter your mobile number"
+                            oninput="Mobile_Check()" onkeypress="disableAlphabets(event)" onpaste="return false;">
+                        <p id="mobileNumberError" class="text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Date of Birth<span class="required"> *</span></label>
+                        <input type="date" class="form-control" id="dob" oninput=" Date_Check()" onkeydown="return false"
+                        onpaste="return false;" required>
+                        <p id="dobError" class="text-danger"></p>
+                    </div>
+
+                    <div class="form-group gender" id="gender">
+                        <label>Gender<span class="required"> *</span></label>
+                        <div>
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male"
+                                checked>Male
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">Female
+                        </div>
+                        <p id="genderError" class="text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Hobbies<span class="required"> *</span></label>
+                        <div>
+                            <input type="checkbox" id="Reading" name="hobby" value="Reading" onclick="Hobby_Check()">
+                            <label for="Reading">Reading</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Sports" name="hobby" value="Sports" onclick="Hobby_Check()">
+                            <label for="Sports">Sports</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Music" name="hobby" value="Music" onclick="Hobby_Check()">
+                            <label for="Music">Music</label>
+                        </div>
+                        <p id="hobbyError" class="text-danger"></p>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Select Country<span class="required"> *</span></label>
+                        <select class="form-control" id="countries" oninput="Country_Check()">
+                            <option value="Select Country" disabled selected hidden>Select Country</option>
+                            <option value="INDIA">India</option>
+                            <option value="USA">USA</option>
+                        </select>
+                        <p id="countryError" class="text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Select State<span class="required"> *</span></label>
+                        <select class="form-control" id="states" onchange="State_Check()">
+                            <option value="Select State" disabled selected hidden>Select State</option>
+                        </select>
+                        <p id="stateError" class="text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Your Address</label>
+                        <textarea class="form-control" id="add" rows="1"></textarea>
+                        <p id="addressError" class="text-danger"></p>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-submit" id="Submitbutton1"
+                            onclick="SUBMIT()">SignUp</button>
+                        <button type="button" class="btn btn-submit" id="Submitbutton"
+                            onclick="openFormInNewWindow()">Login</button>
+                    </div>
+                </form>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-submit" style="display: none; " id="saveButton"
+                    onclick="saveData()">Save</button>
+                <button type="button" class="btn btn-submit" style="display: none; " id="cancelButton"
+                    onclick="cancelbutton()">Cancel</button>
+                <input type="hidden" id="currentIndex">
+            </div>
+        </div>
+
+
+        <form id="Filter-function">
+            <div class="form-group" id="individualsearch">
+                <label>Search</label>
+                <input type="text" class="form-control" id="searchInput" oninput="search_data()"
+                    placeholder="Search...">
+                <br>
+            </div>
+            <!-- <div class="form-group" id="comboSearch">
+                <label>Search</label>
+                <input type="text" class="form-control" id="searchInput2" oninput="search_data()"
+                    placeholder="Search...">
+                <br>
+            </div> -->
+            
+        </form>
+        <div class="form-group filter" id="filter">
+            <label>Filter By
+                <div>
+                    <input class="form-check-input" type="radio" name="filter" id="Individual" value="Individual"
+                        checked>Individual
+                    <input class="form-check-input" type="radio" name="filter" id="Combo" value="Combo" >Combo
+                </div>
+            </label>
+        </div>
+
+        <form id="Filter_fomr">
+
+            <div class="filter_ind" id="filter_ind">
+
+                <div class="text-center">
+                    <h3>Filter By individual</h3>
+                    <button type="button" class="btn btn-submit" style="justify-content: center;"
+                        onclick="GetData()">AllData</button>
+                    <button type="button" class="btn btn-submit" style="justify-content: center;"
+                        onclick="DateFILTER()">Date</button>
+                    <button type="button" class="btn btn-submit" style="justify-content: center;"
+                        onclick="GenderFilter()">Gender</button>
+                    <button type="button" class="btn btn-submit" style="justify-content: center;"
+                        onclick="CountryFilter()">Country</button>
+
+                </div>
+                <div class="filter-dates text-center input-group" style="display: none;" id="filter-dates">
+                    <label for="startFilterDate">Start Date:</label>
+                    <input type="date" id="startFilterDate">
+                    <label for="endFilterDate">End Date:</label>
+                    <input type="date" id="endFilterDate" onload="comparedate()">
+                    <button type="button" class="btn btn-submit" onclick="filterDateRange()">Filter Data</button>
+                </div>
+                <div class="gender-filter text-center" id="gender-filter" style="display: none;">
+                    <button type="button" class="btn btn-submit" id="male12" value="male"
+                        onclick="malefilter()">Male</button>
+                    <button type="button" class="btn btn-submit" id="female12" value="female"
+                        onclick="femalefilter()">Female</button>
+                </div>
+                <div class="country-filter text-center" id="country-filter" style="display: none;">
+                    <input type="text" id="cnt" onkeyup="CntFilter()" placeholder="Search for country..">
+                </div>
+
+            </div>
+
+            <div class="combo" id="combo">
+                <div class="filter-dates text-center input-group">
+                    <label for="startFilterDate">Start Date:</label>
+                    <input type="date" id="startFilterDate1" onchange="Dependent_Filter()">
+                    <label for="endFilterDate">End Date:</label>
+                    <input type="date" id="endFilterDate2" onload="comparedate() " onchange="Dependent_Filter()">
+                </div>
+                <select class="gender" id="gender11" onchange="Dependent_Filter()">
+                    <option value="" selected>All</option>
+                    <option value="male" >Male</option>
+                    <option value="female">FeMale</option>
+                </select>
+                <select class="Country" id="country" onchange="Dependent_Filter()">
+                    <option value=""  selected>All</option>
+                    <option value="India" >India</option>
+                    <option value="Usa">Usa</option>
+                </select>
+                <button type="button" class="btn btn-submit" onclick="clearFilter()">Clear Filters</button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- <div class="form-group">
+        <label>Hobbies<span class="required"> *</span></label>
+        <div>
+            <input type="checkbox" id="Reading" name="hobby" value="Reading" onclick="Hobby_Check()">
+            <label for="Reading">Reading</label>
+        </div>
+        <div>
+            <input type="checkbox" id="Sports" name="hobby" value="Sports" onclick="Hobby_Check()">
+            <label for="Sports">Sports</label>
+        </div>
+        <div>
+            <input type="checkbox" id="Music" name="hobby" value="Music" onclick="Hobby_Check()">
+            <label for="Music">Music</label>
+        </div>
+        <p id="hobbyError" class="text-danger"></p>
+    </div> -->
+
+    <div class="retrive">
+        <div id="paginationControls" class="paginationControls" style="text-align: end; ">
+            <i class="fa-solid fa-angle-left" id="previouspage" onclick="if (!this.disabled) prevPage()" style="cursor: pointer;"></i>
+            <span id="currentPage"></span>
+            <i class="fa-solid fa-angle-right " id="nextpage"  onclick="if (!this.disabled) nextPage()" style="cursor: pointer;"></i>
+            <span id="fromtofrom"></span>
+        </div>
+
+
+        
+
+        <table id="userData">
+            <thead>
+                <tr>
+                    <th >ID </th>
+                    <th>First Name 
+                        <i class="fa-solid fa-caret-down" id="drp1" onclick="dropdownbutton()"></i>
+                        <div id="sortDropdown" class="dropdown-content filterdropdown">
+                          <a  onclick="sortTable('fname')">Ascending</a>
+                          <a  onclick="sortTableDescending('fname')">Descending</a>
+                        </div>
+                      </th>
+                    <th >Last Name <i class="fa-solid fa-caret-down" id="drp2" onclick="dropdownbuttonl()"></i>
+                        <div id="sortDropdownl" class="dropdown-content filterdropdown">
+                          <a  onclick="sortTable('lname')">Ascending</a>
+                          <a  onclick="sortTableDescending('lname')">Descending</a>
+                        </div>
+                      </th>
+                    <th> Email</th>
+                    <th>Mobile NO</th>
+                    <th>Date</th>
+                    <th> Gender</th>
+                    <th>Hobbies</th>
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>Address</th>
+                    <th>Button</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="./src/script.js"></script>
+    <script src="./src/state.js"></script>
+    <script src="./src/filter.js"></script>
+    <script src="./src/login.js"></script>
+    <script src="./src/pagination.js"></script>
+    <script src="./src/CRUD.js"></script>
+    <script src="./src/shorting.js"></script>
+    <!-- <script src="./src/combofilter.js"></script> -->
+
+</body>
+
+</html>

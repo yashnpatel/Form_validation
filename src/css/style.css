@@ -1,0 +1,151 @@
+.container {
+    height: auto;
+    width: 600px;
+}
+
+
+label {
+    font-weight: bold;
+}
+
+.gender {
+    margin-bottom: 20px;
+}
+
+.gender label {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.gender input[type="radio"] {
+    margin-right: 5px;
+}
+
+.form-check-input {
+    margin-left: 0px;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    color: darkcyan;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.btn-submit {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+.retrive {
+    margin-top: 50px;
+}
+
+.retrive table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgb(0, 0, 0);
+    color: #333;
+}
+
+.retrive th,
+.retrive td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #2b0404;
+    color: white;
+}
+
+.retrive th {
+    background-color: #004a4d;
+    font-weight: bold;
+}
+
+.retrive tr:nth-child(even) {
+    background-color: #4b0a0a;
+    color: white;
+}
+
+.retrive tr:hover {
+    background-color: #aa8b8b;
+}
+
+button#saveButton {
+    position: relative;
+    margin-bottom: 0px;
+}
+
+span {
+    color: red;
+}
+
+
+.paginationControls {
+    text-align: end;
+    margin-right: 15px;
+}
+
+
+i {
+    color: red;
+    margin-right: 5px;
+    position: relative; 
+}
+i:hover {
+    color: blue; 
+}
+
+.combo {
+    display: none;
+
+}
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        color: black;
+        min-width: 100px;
+        z-index: 1;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-content a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .fa-caret-down {
+        cursor: pointer;
+    }
+    .filterdropdown{
+        display: none;
+    }
+h2{
+    text-align: center;
+}
+@media (max-width: 576px) {
+    .form-group {
+        margin-bottom: 15px;
+    }
+}
+
